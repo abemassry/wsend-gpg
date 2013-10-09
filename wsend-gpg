@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+gpg -c --force-mdc "$1"
+if [ -e "$1.gpg" ]; then
+  $HOME/.wsend/wsend "$1.gpg"
+  rm "$1.gpg"
+fi

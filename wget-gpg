@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+wget "$1"
+filename=$(echo "$1" | sed 's/\// /g' | awk '{ print $4 }')
+filenamed=$(echo "$filename" | sed 's/.gpg//')
+gpg "$filename"
+if [ -e "$filename" ]; then
+  rm "$filename"
+fi
