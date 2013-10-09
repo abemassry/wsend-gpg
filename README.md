@@ -1,4 +1,4 @@
 wsend-gpg
 =========
 
-Secure end to end file transfer
+Encrypted end to end file transfer
