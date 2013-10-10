@@ -69,28 +69,28 @@ if [ -d "$HOME/.wsend" ]; then
 else
   # if not, install
   mkdir $HOME/.wsend
-  #download wsend and put it in directory
-  wsDL=`curl -o $HOME/.wsend/wsend https://raw.github.com/abemassry/wsend/master/wsend 2>/dev/null`
-  chmod +x $HOME/.wsend/wsend
-  newLatestVersionDL=`curl -o $HOME/.wsend/version https://raw.github.com/abemassry/wsend/master/version 2>/dev/null`
-  #download wsend-gpg and wget-gpg
-  wsgpgDL=`curl -o $HOME/.wsend/wsend-gpg https://raw.github.com/abemassry/wsend-gpg/master/wsend-gpg 2>/dev/null`
-  chmod +x $HOME/.wsend/wsend-gpg
-  wgpgDL=`curl -o $HOME/.wsend/wget-gpg https://raw.github.com/abemassry/wget-gpg/master/wget-gpg 2>/dev/null`
-  chmod +x $HOME/.wsend/wget-gpg
-  #add alias to shell
-  #execute alias command
-  if [ $SHELL == "/bin/bash" ]; then
-    bashInstall
-  elif [ $SHELL == "/bin/csh" ]; then
-    cshInstall
-  elif [ $SHELL == "/bin/tcsh" ]; then
-    cshInstall
-  elif [ $SHELL == "/bin/ksh" ]; then
-    kshInstall
-  elif [ $SHELL == "/bin/zsh" ]; then
-    zshInstall
-  fi # install done
 fi # check for directory exists done
+#download wsend and put it in directory
+wsDL=`curl -o $HOME/.wsend/wsend https://raw.github.com/abemassry/wsend/master/wsend 2>/dev/null`
+chmod +x $HOME/.wsend/wsend
+newLatestVersionDL=`curl -o $HOME/.wsend/version https://raw.github.com/abemassry/wsend/master/version 2>/dev/null`
+#download wsend-gpg and wget-gpg
+wsgpgDL=`curl -o $HOME/.wsend/wsend-gpg https://raw.github.com/abemassry/wsend-gpg/master/wsend-gpg 2>/dev/null`
+chmod +x $HOME/.wsend/wsend-gpg
+wgpgDL=`curl -o $HOME/.wsend/wget-gpg https://raw.github.com/abemassry/wget-gpg/master/wget-gpg 2>/dev/null`
+chmod +x $HOME/.wsend/wget-gpg
+#add alias to shell
+#execute alias command
+if [ $SHELL == "/bin/bash" ]; then
+  bashInstall
+elif [ $SHELL == "/bin/csh" ]; then
+  cshInstall
+elif [ $SHELL == "/bin/tcsh" ]; then
+  cshInstall
+elif [ $SHELL == "/bin/ksh" ]; then
+  kshInstall
+elif [ $SHELL == "/bin/zsh" ]; then
+  zshInstall
+fi # install done
 echo ''
 echo "done"
