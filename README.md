@@ -68,7 +68,7 @@ Note: This install command appends the alias to your .bashrc or equivalent
     filename=$(echo "$1" | sed 's/\// /g' | awk '{ print $4 }')
     filenamed=$(echo "$filename" | sed 's/.gpg//')
     gpg "$filename"
-    if [ -e "$filename" ]; then
+    if [ -e "$filenamed" ]; then
       rm "$filename"
     fi
 
