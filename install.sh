@@ -77,7 +77,7 @@ newLatestVersionDL=`curl -o $HOME/.wsend/version https://raw.github.com/abemassr
 #download wsend-gpg and wget-gpg
 wsgpgDL=`curl -o $HOME/.wsend/wsend-gpg https://raw.github.com/abemassry/wsend-gpg/master/wsend-gpg 2>/dev/null`
 chmod +x $HOME/.wsend/wsend-gpg
-wgpgDL=`curl -o $HOME/.wsend/wget-gpg https://raw.github.com/abemassry/wget-gpg/master/wget-gpg 2>/dev/null`
+wgpgDL=`curl -o $HOME/.wsend/wget-gpg https://raw.github.com/abemassry/wsend-gpg/master/wget-gpg 2>/dev/null`
 chmod +x $HOME/.wsend/wget-gpg
 #add alias to shell
 #execute alias command
