@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-gpg -c --force-mdc "$1"
+gpg -c -z 9 --require-secmem --cipher-algo AES256 --s2k-cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-mode 3 --s2k-count 65000000 --compress-algo BZIP2 "$1"
 if [ -e "$1.gpg" ]; then
   $HOME/.wsend/wsend "$1.gpg"
   rm "$1.gpg"
