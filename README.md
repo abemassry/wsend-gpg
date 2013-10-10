@@ -8,7 +8,7 @@ Encrypted end to end file transfer
 
 ## Demo
 
-  ### Encrypt and Send
+### Encrypt and Send
     user@system:~/Documents$ wsend-gpg message.txt
     Enter passphrase:
       
@@ -18,7 +18,7 @@ Encrypted end to end file transfer
     https://wsend.net/ef9f450907eac00f96d389ae2efb50f6/message.txt.gpg
     user@system:~/Documents$
 
-  ### Receive and Decrypt
+### Receive and Decrypt
     user@system:~/Documents$ wget-gpg https://wsend.net/ef9f450907eac00f96d389ae2efb50f6/message.txt.gpg
     --2013-10-09 11:59:49--  https://wsend.net/ef9f450907eac00f96d389ae2efb50f6/message.txt.gpg
     Resolving wsend.net (wsend.net)... 66.228.37.175
@@ -52,7 +52,7 @@ Note: This install command appends the alias to your .bashrc or equivalent
 
 
 ## Source
-  ### wsend-gpg
+### wsend-gpg
     #!/bin/bash
     #
     gpg -c --force-mdc "$1"
@@ -61,14 +61,14 @@ Note: This install command appends the alias to your .bashrc or equivalent
       rm "$1.gpg"
     fi
   
-  ### wget-gpg
+### wget-gpg
     #!/bin/bash
     #
     wget "$1"
     filename=$(echo "$1" | sed 's/\// /g' | awk '{ print $4 }')
     filenamed=$(echo "$filename" | sed 's/.gpg//')
     gpg "$filename"
-    if [ -e "$filenamed" ]; then
+    if [ -e "$filename" ]; then
       rm "$filename"
     fi
 
@@ -248,3 +248,4 @@ The `wget-gpg` executable bash script from this repo.
 
 
 #### (C) Copyright 2013, wsend.net
+
