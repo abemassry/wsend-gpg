@@ -22,10 +22,45 @@ bashInstall () {
    #do nothing
    true
   else
+   echo "alias wsend='$HOME/.wsend/wsend'" >> $HOME/.bashrc
+   echo "alias wsend='$HOME/.wsend/wsend'" >> $HOME/.bash_profile
    echo "alias wsend-gpg='$HOME/.wsend/wsend-gpg'" >> $HOME/.bashrc
    echo "alias wget-gpg='$HOME/.wsend/wget-gpg'" >> $HOME/.bashrc
    echo "alias wsend-gpg='$HOME/.wsend/wsend-gpg'" >> $HOME/.bash_profile
    echo "alias wget-gpg='$HOME/.wsend/wget-gpg'" >> $HOME/.bash_profile
+  fi
+}
+cshInstall () {
+  als_set=`grep "alias wsend-gpg=" $HOME/.cshrc`
+  if [ "$als_set" ]; then
+   #do nothing
+   true
+  else
+   echo "alias wsend='$HOME/.wsend/wsend'" >> $HOME/.cshrc
+   echo "alias wsend-gpg='$HOME/.wsend/wsend-gpg'" >> $HOME/.cshrc
+   echo "alias wget-gpg='$HOME/.wsend/wget-gpg'" >> $HOME/.cshrc
+  fi
+}
+kshInstall () {
+  als_set=`grep "alias wsend-gpg=" $HOME/.kshrc`
+  if [ "$als_set" ]; then
+   #do nothing
+   true
+  else
+   echo "alias wsend='$HOME/.wsend/wsend'" >> $HOME/.kshrc
+   echo "alias wsend-gpg='$HOME/.wsend/wsend-gpg'" >> $HOME/.kshrc
+   echo "alias wget-gpg='$HOME/.wsend/wget-gpg'" >> $HOME/.kshrc
+  fi
+}
+zshInstall () {
+  als_set=`grep "alias wsend-gpg=" $HOME/.zshrc`
+  if [ "$als_set" ]; then
+   #do nothing
+   true
+  else
+   echo "alias wsend='$HOME/.wsend/wsend'" >> $HOME/.zshrc
+   echo "alias wsend-gpg='$HOME/.wsend/wsend-gpg'" >> $HOME/.zshrc
+   echo "alias wget-gpg='$HOME/.wsend/wget-gpg'" >> $HOME/.zshrc
   fi
 }
 # check to see if directory exists
@@ -33,42 +68,29 @@ if [ -d "$HOME/.wsend" ]; then
   wsend_dir="$HOME/.wsend"
 else
   # if not, install
-  if [ "$freeSpaceK" -gt 100 ]; then
-    mkdir $HOME/.wsend
-    #download wsend and put it in directory
-    wsDL=`curl -o $HOME/.wsend/wsend https://raw.github.com/abemassry/wsend/master/wsend 2>/dev/null`
-    chmod +x $HOME/.wsend/wsend
-    #supporting files as well
-    rmDL=`curl -o $HOME/.wsend/README.md https://raw.github.com/abemassry/wsend/master/README.md 2>/dev/null`
-    cpDL=`curl -o $HOME/.wsend/COPYING https://raw.github.com/abemassry/wsend/master/COPYING 2>/dev/null`
-    newLatestVersionDL=`curl -o $HOME/.wsend/version https://raw.github.com/abemassry/wsend/master/version 2>/dev/null`
-  else
-    echoerr "not enough free space to continue. Aborting";
-    exit 1;
-  fi
+  mkdir $HOME/.wsend
+  #download wsend and put it in directory
+  wsDL=`curl -o $HOME/.wsend/wsend https://raw.github.com/abemassry/wsend/master/wsend 2>/dev/null`
+  chmod +x $HOME/.wsend/wsend
+  newLatestVersionDL=`curl -o $HOME/.wsend/version https://raw.github.com/abemassry/wsend/master/version 2>/dev/null`
+  #download wsend-gpg and wget-gpg
+  wsgpgDL=`curl -o $HOME/.wsend/wsend-gpg https://raw.github.com/abemassry/wsend-gpg/master/wsend-gpg 2>/dev/null`
+  chmod +x $HOME/.wsend/wsend-gpg
+  wgpgDL=`curl -o $HOME/.wsend/wget-gpg https://raw.github.com/abemassry/wget-gpg/master/wget-gpg 2>/dev/null`
+  chmod +x $HOME/.wsend/wget-gpg
   #add alias to shell
   #execute alias command
   if [ $SHELL == "/bin/bash" ]; then
     bashInstall
-    echo "enter this to use the wsend command:"
-    echo "alias wsend='$HOME/.wsend/wsend'"
   elif [ $SHELL == "/bin/csh" ]; then
     cshInstall
-    echo "enter this to use the wsend command:"
-    echo "alias wsend '$HOME/.wsend/wsend'"
   elif [ $SHELL == "/bin/tcsh" ]; then
     cshInstall
-    echo "enter this to use the wsend command:"
-    echo "alias wsend '$HOME/.wsend/wsend'"
   elif [ $SHELL == "/bin/ksh" ]; then
     kshInstall
-    echo "enter this to use the wsend command:"
-    echo "alias wsend='$HOME/.wsend/wsend'"
   elif [ $SHELL == "/bin/zsh" ]; then
     zshInstall
-    echo "enter this to use the wsend command:"
-    echo "alias -g wsend='$HOME/.wsend/wsend'"
   fi # install done
-fi # check for installation done
+fi # check for directory exists done
 echo ''
-echo "install done"
+echo "done"
