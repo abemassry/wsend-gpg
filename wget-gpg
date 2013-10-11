@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 wget "$1"
-filename=$(echo "$1" | sed 's/\// /g' | awk '{ print $4 }')
-filenamed=$(echo "$filename" | sed 's/.gpg//')
+filename=${1##*/}
+filenamed=${filename%.*}
 gpg "$filename"
 if [ -e "$filenamed" ]; then
   rm "$filename"
