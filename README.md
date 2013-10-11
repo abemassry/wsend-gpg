@@ -55,7 +55,7 @@ Note: This install command appends the alias to your .bashrc or equivalent
 ### wsend-gpg
     #!/bin/bash
     #
-    gpg -c --force-mdc "$1"
+    gpg -c -z 9 --require-secmem --cipher-algo AES256 --s2k-cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-mode 3 --s2k-count 65000000 --compress-algo BZIP2 "$1"
     if [ -e "$1.gpg" ]; then
       $HOME/.wsend/wsend "$1.gpg"
       rm "$1.gpg"
@@ -65,8 +65,8 @@ Note: This install command appends the alias to your .bashrc or equivalent
     #!/bin/bash
     #
     wget "$1"
-    filename=$(echo "$1" | sed 's/\// /g' | awk '{ print $4 }')
-    filenamed=$(echo "$filename" | sed 's/.gpg//')
+    filename=${1##*/}
+    filenamed=${filename%.*}
     gpg "$filename"
     if [ -e "$filenamed" ]; then
       rm "$filename"
