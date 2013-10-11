@@ -31,7 +31,7 @@ Encrypted end to end file transfer
 
     2013-10-09 11:59:49 (1.41 KB/s) - `message.txt.gpg' saved [94/94]
 
-    gpg: CAST5 encrypted data
+    gpg: AES256 encrypted data
     Enter passphrase:
     gpg: encrypted with 1 passphrase
     spider@myst:~/Documents/wsend-gpg$
