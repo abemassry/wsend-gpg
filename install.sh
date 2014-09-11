@@ -71,13 +71,13 @@ else
   mkdir $HOME/.wsend
 fi # check for directory exists done
 #download wsend and put it in directory
-wsDL=`curl -o $HOME/.wsend/wsend https://raw.github.com/abemassry/wsend/master/wsend 2>/dev/null`
+wsDL=`curl -s -L -o $HOME/.wsend/wsend https://raw.githubusercontent.com/abemassry/wsend/master/wsend 2>/dev/null`
 chmod +x $HOME/.wsend/wsend
-newLatestVersionDL=`curl -o $HOME/.wsend/version https://raw.github.com/abemassry/wsend/master/version 2>/dev/null`
+newLatestVersionDL=`curl -s -L -o $HOME/.wsend/version https://raw.githubusercontent.com/abemassry/wsend/master/version 2>/dev/null`
 #download wsend-gpg and wget-gpg
-wsgpgDL=`curl -o $HOME/.wsend/wsend-gpg https://raw.github.com/abemassry/wsend-gpg/master/wsend-gpg 2>/dev/null`
+wsgpgDL=`curl -s -L -o $HOME/.wsend/wsend-gpg https://raw.githubusercontent.com/abemassry/wsend-gpg/master/wsend-gpg 2>/dev/null`
 chmod +x $HOME/.wsend/wsend-gpg
-wgpgDL=`curl -o $HOME/.wsend/wget-gpg https://raw.github.com/abemassry/wsend-gpg/master/wget-gpg 2>/dev/null`
+wgpgDL=`curl -s -L -o $HOME/.wsend/wget-gpg https://raw.githubusercontent.com/abemassry/wsend-gpg/master/wget-gpg 2>/dev/null`
 chmod +x $HOME/.wsend/wget-gpg
 #add alias to shell
 #execute alias command
