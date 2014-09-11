@@ -46,7 +46,7 @@ Encrypted end to end file transfer
 
 ## Install
 
-    wget https://raw.github.com/abemassry/wsend-gpg/master/install.sh -O - | bash
+    wget https://raw.githubusercontent.com/abemassry/wsend-gpg/master/install.sh -O - | bash
     alias wsend="~/.wsend/wsend"; alias wsend-gpg="~/.wsend/wsend-gpg"; alias wget-gpg="~/.wsend/wget-gpg"
 Note: This install command appends the alias to your .bashrc or equivalent
 
