@@ -247,5 +247,5 @@ The `wsend-gpg` executable bash script from this repo.
 The `wget-gpg` executable bash script from this repo.
 
 
-#### (C) Copyright 2013, wsend.net
+#### (C) Copyright 2016, wsend.net
 
