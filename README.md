@@ -132,7 +132,7 @@ Note: This install command appends the alias to your .bashrc or equivalent
 | Hero Paid Account (coming soon)       | ~~100GB~~ | $50/year or $5/month |
  
 
-##API
+## API
 The API is REST like in the sense that there is a representational transfer of state.  It isn't REST like in the sense that the only transport method that is used is HTTP POST.
 
 To get a user id:
@@ -165,7 +165,7 @@ To log in a user:
   curl -F "email=$email" -F "password=$password" https://wsend.net/login_cli
     
 
-##FAQ
+## FAQ
 
  1. Q: How does this differ from [wsend](https://github.com/abemassry/wsend)
   
