@@ -128,8 +128,8 @@ Note: This install command appends the alias to your .bashrc or equivalent
 | Unregistered (Anonymous) Account      | 200MB     | Free                 |
 | Free Account                          | 2GB       | Free                 |
 | Supporter Paid Account                | 10GB      | $10/year or $1/month |
-| Enthusiast Paid Account (coming soon) | ~~75GB~~  | $30/year or $3/month |
-| Hero Paid Account (coming soon)       | ~~100GB~~ | $50/year or $5/month |
+| Enthusiast Paid Account               | 75GB      | $30/year or $3/month |
+| Hero Paid Account                     | 100GB     | $50/year or $5/month |
  
 
 ## API
@@ -247,5 +247,5 @@ The `wsend-gpg` executable bash script from this repo.
 The `wget-gpg` executable bash script from this repo.
 
 
-#### (C) Copyright 2016, wsend.net
+#### (C) Copyright 2018, wsend.net
 
